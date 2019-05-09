@@ -50,5 +50,6 @@ public class RobotCfg
 
     /* Initialize standard Hardware interfaces */
     public void init(HardwareMap ahwMap) {
-
+        
+    }
  }
