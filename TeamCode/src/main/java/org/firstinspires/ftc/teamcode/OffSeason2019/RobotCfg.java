@@ -35,20 +35,19 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-public class RobotCfg
-{
+public class RobotCfg {
 
 
-
-
-    private ElapsedTime period  = new ElapsedTime();
+    private ElapsedTime period = new ElapsedTime();
 
     /* Constructor */
-    public RobotCfg(){
+    public RobotCfg() {
 
     }
 
     /* Initialize standard Hardware interfaces */
     public void init(HardwareMap ahwMap) {
 
- }
+    }
+}
+
