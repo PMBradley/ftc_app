@@ -42,18 +42,6 @@ import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 
-/**
- * This file contains an minimal example of a Linear "OpMode". An OpMode is a 'program' that runs in either
- * the autonomous or the teleop period of an FTC match. The names of OpModes appear on the menu
- * of the FTC Driver Station. When an selection is made from the menu, the corresponding OpMode
- * class is instantiated on the Robot Controller and executed.
- *
- * This particular OpMode just executes a basic Tank Drive Teleop for a two wheeled robot
- * It includes all the skeletal structure that all linear OpModes contain.
- *
- * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
- * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
- */
 
 public class TankDriveExample {
     //Declaration of variables and objects
@@ -97,8 +85,9 @@ public class TankDriveExample {
         left_Drive_Power = drive_Power + turn_Move_Power;
         right_Drive_Power = drive_Power - turn_Move_Power;
 
+
         left_Drive.setPower(left_Drive_Power);
-        right_Drive.setPower(right_Drive_Power);
+        right_Drive.setPower(-right_Drive_Power);
     }
 
 
@@ -119,12 +108,22 @@ public class TankDriveExample {
             right_Drive_Power = original_Drive_Power - turn_Move_Power;
 
             left_Drive.setPower(left_Drive_Power);
-            right_Drive.setPower(right_Drive_Power);
+            right_Drive.setPower(-right_Drive_Power);
         }
         else{
             stillDriving = false;
 
-            //reset variables
+            //stop motors
+            left_Drive.setPower(0);
+            right_Drive.setPower(0);
+
+            //reset variables for next drive
+            move_End_Time = 0;
+            target_Heading = 0;
+            original_Drive_Power = 0;
+            turn_Move_Power = 0;
+            left_Drive_Power = 0;
+            right_Drive_Power = 0;
         }
 
         return stillDriving;
